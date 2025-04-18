@@ -37,7 +37,7 @@ export default function Navbar() {
         <nav className="w-full px-4 md:px-8 lg:px-12 h-16 flex items-center justify-between max-w-6xl mx-auto">
           <Link href="#" className="flex items-center gap-2">
             <Frame className="w-8 h-8" />
-            <span className="font-bold text-xl">BR</span>
+            <span className="font-bold text-xl">SKP</span>
           </Link>
 
           {/* Desktop Navbar */}

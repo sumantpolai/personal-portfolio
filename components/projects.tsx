@@ -1,8 +1,5 @@
-"use client"
-
 import { motion } from "framer-motion"
 import { ExternalLink, Github } from "lucide-react"
-import AnimatedButton from "./animated-button"
 import Image from "next/image"
 import chatimg from "../public/Block-the-user.png"
 import tureimg from "../public/incredeble.png"
@@ -11,18 +8,18 @@ import port from "../public/portfolio.png"
 
 const projects = [
   {
-    title: "Increadible Odisha",
+    title: "Incredible Odisha",
     description:
       "Built a responsive website using React.js for the frontend and PostgreSQL for database management.",
     tech: ["React.js", "PostgreSQL", "Node.js", "Express.js"],
     Image: tureimg,
-    github: "https://github.com/yourusername/food-delivery",
-    demo: "https://food-delivery-demo.vercel.app",
+    github: "https://github.com/sumantpolai/incredible-odisha",
+    demo: "https://incredible-odisha.vercel.app",
   },
   {
     title: "Chat Application",
     description:
-      "Made a chat app where we can create profile and chat with other user with intelegent chat recommendations.",
+      "Made a chat app where we can create profile and chat with other users with intelligent chat recommendations.",
     tech: ["React.js", "Node.js", "Firebase", "Express.js"],
     Image: chatimg,
     github: "https://github.com/sumantpolai/React-Chat_App",
@@ -31,8 +28,8 @@ const projects = [
   {
     title: "AgriMarket",
     description:
-      "Made a Agrimarket website designed an intuitive interface to streamline agricultural trading.",
-    tech: ["React.js", "Node.js", "Mongodb", "Express.js"],
+      "Made an AgriMarket website and designed an intuitive interface to streamline agricultural trading.",
+    tech: ["React.js", "Node.js", "MongoDB", "Express.js"],
     Image: agri,
     github: "https://github.com/sumantpolai/AgriMarket-frontend",
     demo: "https://agri-market-frontend.vercel.app/",
@@ -43,7 +40,7 @@ const projects = [
       "Designed and developed a portfolio showcasing skills and projects.",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
     Image: port,
-    github: "https://github.com/yourusername/portfolio",
+    github: "https://github.com/sumantpolai/portfolio",
     demo: "https://portfolio-demo.vercel.app",
   },
 ]
@@ -95,24 +92,13 @@ export default function Projects() {
               viewport={{ once: false }}
               className="animated-card rounded-xl p-4 transform-gpu hover:scale-105 transition-transform duration-300"
             >
-              <div className="video-wrapper mb-4 relative w-full h-48 overflow-hidden rounded-lg">
-                {project.video ? (
-                  <iframe
-                    src={`${project.video}?autoplay=1&mute=1&rel=0&controls=0`}
-                    title={project.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    className="w-full h-full absolute inset-0"
-                    style={{ pointerEvents: "none" }}
-                  />
-                ) : (
-                  <Image
-                    src={project.Image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                    layout="fill"
-                  />
-                )}
-
+              <div className="mb-4 relative w-full h-48 overflow-hidden rounded-lg">
+                <Image
+                  src={project.Image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                  fill
+                />
                 <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <a
                     href={project.demo}
@@ -147,26 +133,23 @@ export default function Projects() {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full"
+                  className="w-full bg-indigo-600 text-white text-sm font-medium px-4 py-2 rounded-lg text-center hover:bg-indigo-700 transition"
                 >
-                  <AnimatedButton className="w-full flex items-center justify-center gap-2">
+                  <div className="flex items-center justify-center gap-2">
                     <Github className="w-4 h-4" />
                     Code
-                  </AnimatedButton>
+                  </div>
                 </a>
                 <a
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full"
+                  className="w-full border border-indigo-500 text-indigo-500 text-sm font-medium px-4 py-2 rounded-lg text-center hover:bg-indigo-500 hover:text-white transition"
                 >
-                  <AnimatedButton
-                    variant="outline"
-                    className="w-full flex items-center justify-center gap-2"
-                  >
+                  <div className="flex items-center justify-center gap-2">
                     <ExternalLink className="w-4 h-4" />
                     Demo
-                  </AnimatedButton>
+                  </div>
                 </a>
               </div>
             </motion.div>
