@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================= */
+/*       Theme Colors        */
+/* ========================= */
+:root {
+  --grid-size: 30px;
+  --grid-color: rgba(255, 255, 255, 0.05);
+  --bg-start: #000000; /* Black */
+  --bg-mid: #0a0a1f; /* Dark Blue */
+  --bg-end: #1b1b4d; /* Deep Blue */
+}
+
+/* ========================= */
+/*     Background Setup      */
+/* ========================= */
+body {
+  background: linear-gradient(to right, var(--bg-start), var(--bg-mid), var(--bg-end));
+  min-height: 100vh;
+  color: white;
+  cursor: none;
+}
+
+/* ========================= */
+/*   Grid Background Effect  */
+/* ========================= */
+.grid-background {
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  z-index: -1;
+}
+
+.grid-highlight {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 4px;
+  pointer-events: none;
+  transition: all 0.1s ease;
+  background: linear-gradient(45deg, rgba(79, 70, 229, 0.1), rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
+  backdrop-filter: blur(4px);
+  opacity: 0;
+}
+
+/* ========================= */
+/*       Custom Cursor       */
+/* ========================= */
+.cursor {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
+
+.cursor.hover {
+  transform: scale(1.5);
+}
+
+/* ========================= */
+/*       Mouse Light        */
+/* ========================= */
+.mouse-light {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.8;
+  mix-blend-mode: screen;
+}
+
+/* ========================= */
+/*       Animated Cards      */
+/* ========================= */
+.animated-card {
+  position: relative;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  border-radius: 8px;
+  transform: perspective(1000px);
+  transition: all 0.3s ease;
+}
+
+.animated-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: 0.5s;
+}
+
+.animated-card:hover::before {
+  left: 100%;
+}
+
+.animated-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(45deg, #4f46e5, #7c3aed, #2563eb);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.animated-card:hover {
+  transform: perspective(1000px) translateZ(20px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* ========================= */
+/*         Buttons           */
+/* ========================= */
+.hotstar-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.hotstar-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #4f46e5, #7c3aed);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.hotstar-button:hover::before {
+  opacity: 1;
+}
+
+.hotstar-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+}
+
+/* ========================= */
+/*         Text Styles       */
+/* ========================= */
+.text-gradient {
+  background: linear-gradient(45deg, #4f46e5, #7c3aed, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-white {
+  color: white;
+}
+
+/* Add these new animations to your existing globals.css */
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+.section {
+  position: relative;
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.section.visible {
+  animation: slideInUp 1s forwards;
+}
+
+.section.hidden {
+  animation: slideOutDown 1s forwards;
+}
+
+/* Add a smooth transition for video overlay */
+.video-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-wrapper:hover::after {
+  opacity: 1;
+}
+
