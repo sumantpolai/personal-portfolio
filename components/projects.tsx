@@ -5,6 +5,8 @@ import chatimg from "../public/Block-the-user.png"
 import tureimg from "../public/incredeble.png"
 import agri from "../public/agrimarket.png"
 import port from "../public/portfolio.png"
+import ware from "../public/warehousing.png"
+import home from "../public/homesearch.png"
 
 const projects = [
   {
@@ -48,7 +50,7 @@ const projects = [
     description:
       "Develeped a responsive website where users can add their warehouse and search for warehouses.",
     tech: ["Next.js","Typescript", "Tailwind CSS", "MongoDB"],
-    Image: port,
+    Image: ware,
     github: "https://github.com/sumantpolai/WarehousingAdda",
     demo: "https://warehousing-adda.vercel.app",
   },
@@ -57,7 +59,7 @@ const projects = [
     description:
       "Develeped a responsive website where users can add their home and search for homes.",
     tech: ["Next.js","Typescript", "Tailwind CSS", "MongoDB"],
-    Image: port,
+    Image: home,
     github: "https://github.com/sumantpolai/homesearch",
     demo: "https://homesearch-two.vercel.app",
   },
