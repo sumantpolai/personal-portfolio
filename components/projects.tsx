@@ -43,6 +43,25 @@ const projects = [
     github: "https://github.com/sumantpolai/portfolio",
     demo: "https://portfolio-demo.vercel.app",
   },
+  {
+    title: "WareHousingAdda",
+    description:
+      "Develeped a responsive website where users can add their warehouse and search for warehouses.",
+    tech: ["Next.js","Typescript", "Tailwind CSS", "MongoDB"],
+    Image: port,
+    github: "https://github.com/sumantpolai/WarehousingAdda",
+    demo: "https://warehousing-adda.vercel.app",
+  },
+   {
+    title: "Homesearch",
+    description:
+      "Develeped a responsive website where users can add their home and search for homes.",
+    tech: ["Next.js","Typescript", "Tailwind CSS", "MongoDB"],
+    Image: port,
+    github: "https://github.com/sumantpolai/homesearch",
+    demo: "https://homesearch-two.vercel.app",
+  },
+  
 ]
 
 export default function Projects() {
