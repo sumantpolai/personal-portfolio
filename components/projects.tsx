@@ -5,7 +5,7 @@ import chatimg from "../public/Block-the-user.png"
 import tureimg from "../public/incredeble.png"
 import agri from "../public/agrimarket.png"
 import port from "../public/portfolio.png"
-import ware from "../public/warehousing.png"
+import ware from "../public/warehousingAdda.png"
 import home from "../public/homesearch.png"
 
 const projects = [
